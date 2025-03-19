@@ -26,9 +26,8 @@ public class BookController {
     }
 
     @PostMapping
-    public void createBook(@RequestBody Book book){
-        bookService.addBook(book);
-        bookService.saveBook(book);
+    public Book createBook(@RequestBody Book book){
+        return bookService.addBook(book);
     }
 
     @PutMapping ("/{id}/{availability}")
