@@ -21,6 +21,10 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public Book getBookById(Long id) {
+        return bookRepository.findById(id).orElse(null);
+    }
+
     public Book saveBook(Book book){
         return  bookRepository.save(book);
     }
@@ -29,14 +33,7 @@ public class BookService {
         Book book = bookRepository.findById(id).orElseThrow(()-> new RuntimeException("Book is not available"));
         book.setAvailability(available);
         bookRepository.save(book);
-       
+
     }
-
-
-
-
-
-
     
-
 }
