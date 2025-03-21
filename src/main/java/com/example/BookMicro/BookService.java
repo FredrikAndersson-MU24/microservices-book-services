@@ -25,10 +25,6 @@ public class BookService {
         return bookRepository.findById(id).orElse(null);
     }
 
-    public Book saveBook(Book book){
-        return  bookRepository.save(book);
-    }
-
     public void updateBookAvailability(Long id, boolean available){
         Book book = getBookById(id);
         book.setAvailability(available);
