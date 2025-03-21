@@ -30,10 +30,9 @@ public class BookService {
     }
 
     public void updateBookAvailability(Long id, boolean available){
-        Book book = bookRepository.findById(id).orElseThrow(()-> new RuntimeException("Book is not available"));
+        Book book = getBookById(id);
         book.setAvailability(available);
         bookRepository.save(book);
-
     }
     
 }
